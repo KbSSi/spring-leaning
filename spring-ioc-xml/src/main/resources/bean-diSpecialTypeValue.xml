@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    通过外部bean引入
+    1.创建两个类对象
+    2.在emp的bean标签中，使用property引入dept的bean
+    -->
+    <bean id="dept" class="com.ioc.xml.diSpecialTypeValue.Dept">
+        <property name="name" value="安保部"></property>
+    </bean>
+
+    <bean id="emp" class="com.ioc.xml.diSpecialTypeValue.Emp">
+        <!--引入对象类型属性,，利用ref来引入bean-->
+        <property name="dept" ref="dept"></property>
+
+        <!--引入普通属性-->
+        <property name="age" value="18"></property>
+        <property name="name" value="kk"></property>
+    </bean>
+
+
+    <!--内部bean写法-->
+    <bean id="emp2" class="com.ioc.xml.diSpecialTypeValue.Emp">
+        <!--引入对象类型属性,，利用ref来引入bean-->
+        <property name="dept">
+        <bean id="dept2" class="com.ioc.xml.diSpecialTypeValue.Dept">
+            <property name="name" value="开发部"></property>
+        </bean>
+        </property>
+
+        <!--引入普通属性-->
+        <property name="age" value="18"></property>
+        <property name="name" value="kk"></property>
+    </bean>
+
+    <!--级联赋值，来更改dept中的属性值-->
+    <bean id="emp3" class="com.ioc.xml.diSpecialTypeValue.Emp">
+        <!--引入对象类型属性,，利用ref来引入bean-->
+        <property name="dept" ref="dept"></property>
+        <property name="dept.name" value="测试部"></property>
+        <!--引入普通属性-->
+        <property name="age" value="18"></property>
+        <property name="name" value="kk"></property>
+    </bean>
+
+</beans>

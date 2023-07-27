@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--通过list引入多个bean-->
+    <bean id="emp1" class="com.ioc.xml.diSpecialTypeValue.Emp">
+        <property name="name" value="lucy"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <bean id="emp2" class="com.ioc.xml.diSpecialTypeValue.Emp">
+        <property name="name" value="tom"></property>
+        <property name="age" value="30"></property>
+    </bean>
+
+    <bean id="dept" class="com.ioc.xml.diSpecialTypeValue.Dept">
+        <property name="name" value="开发部"></property>
+        <property name="empList">
+            <list>
+                <ref bean="emp1"></ref>
+                <ref bean="emp2"></ref>
+            </list>
+        </property>
+    </bean>
+
+</beans>

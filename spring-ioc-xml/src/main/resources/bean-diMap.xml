@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注入map-->
+    <bean id="teacher1" class="com.ioc.xml.diMap.Teacher">
+        <property name="id" value="1001"></property>
+        <property name="tname" value="lucy"></property>
+    </bean>
+
+    <bean id="teacher2" class="com.ioc.xml.diMap.Teacher">
+        <property name="id" value="404"></property>
+        <property name="tname" value="tom"></property>
+    </bean>
+
+    <bean id="student" class="com.ioc.xml.diMap.Student">
+        <property name="sname" value="kwb"></property>
+        <property name="sage" value="18"></property>
+        <property name="map">
+            <map>
+                <entry>
+                    <key>
+                        <value>1001</value>
+                    </key>
+                    <ref bean="teacher1"></ref>
+                </entry>
+
+                <entry>
+                    <key>
+                        <value>404</value>
+                    </key>
+                    <ref bean="teacher2"></ref>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>
