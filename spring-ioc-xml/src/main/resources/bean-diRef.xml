@@ -3,9 +3,58 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/util
-       http://www.springframework.org/schema/beans/spring-util.xsd"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!--引入集合bean-->
+        <bean id="student" class="com.ioc.xml.diMap.Student">
+            <property name="sname" value="kwb"></property>
+            <property name="sage" value="18"></property>
+
+            <!--注入list类型、map类型-->
+            <property name="lessonList" ref="lessonList"></property>
+            <property name="map" ref="teacherMap"></property>
+        </bean>
+
+        <util:list id="lessonList">
+            <ref bean="lessonone"></ref>
+            <ref bean="lessontwo"></ref>
+        </util:list>
+
+        <util:map id="teacherMap">
+            <entry>
+                <key>
+                    <value>100</value>
+                </key>
+                <ref bean="teacherone"></ref>
+            </entry>
+
+            <entry>
+                <key>
+                    <value>200</value>
+                </key>
+                <ref bean="teachertwo"></ref>
+            </entry>
+        </util:map>
+
+        <bean id="lessonone" class="com.ioc.xml.diMap.Lesson">
+            <property name="lname" value="java开发"></property>
+        </bean>
+
+        <bean id="lessontwo" class="com.ioc.xml.diMap.Lesson">
+            <property name="lname" value="测试"></property>
+        </bean>
+
+        <bean id="teacherone" class="com.ioc.xml.diMap.Teacher">
+            <property name="id" value="1001"></property>
+            <property name="tname" value="lucy"></property>
+        </bean>
+
+        <bean id="teachertwo" class="com.ioc.xml.diMap.Teacher">
+            <property name="id" value="404"></property>
+            <property name="tname" value="tom"></property>
+        </bean>
 
 
 </beans>

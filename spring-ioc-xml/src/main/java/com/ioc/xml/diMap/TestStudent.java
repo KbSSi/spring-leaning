@@ -8,7 +8,7 @@ public class TestStudent {
     @Test
     public void teststudent(){
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("bean-diMap.xml");
+                new ClassPathXmlApplicationContext("bean-diRef.xml");
         Student student = context.getBean("student", Student.class);
 
         student.run();
