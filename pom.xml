@@ -16,12 +16,6 @@
 
     <dependencies>
         <!--引入spring context依赖，表示将Spring的基础依赖引入了-->
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.1.19.RELEASE</version>
-        </dependency>
         <!--jUnit测试依赖-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -42,10 +36,23 @@
             <version>2.19.0</version>
         </dependency>
 
+        <!--MySQL驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
+        <!--数据源-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.18</version>
+        </dependency>
     </dependencies>
     <packaging>pom</packaging>
     <modules>
         <module>spring-first</module>
         <module>spring-ioc-xml</module>
+        <module>spring-aop</module>
     </modules>
 </project>
